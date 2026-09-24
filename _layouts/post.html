@@ -1,0 +1,33 @@
+---
+layout: default
+---
+
+<article class="article">
+
+  <div class="meta">
+    {{ page.date | date: "%B %d, %Y" }}
+    ·
+    {{ page.categories | join: " · " }}
+  </div>
+
+  <h1>{{ page.title }}</h1>
+
+  {% if page.description %}
+  <p class="article-lead">
+    {{ page.description }}
+  </p>
+  {% endif %}
+
+  <div class="article-body">
+    {{ content }}
+  </div>
+
+  <div class="article-footer">
+
+    <a href="{{ '/archive/' | relative_url }}">
+      ← Back to archive
+    </a>
+
+  </div>
+
+</article>
