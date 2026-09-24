@@ -1,0 +1,85 @@
+---
+layout: default
+title: Home
+---
+
+<section class="hero">
+
+<p class="eyebrow">CYBERSECURITY • SOC • DFIR</p>
+
+<h1>Cybersecurity Notes</h1>
+
+<p class="lead">
+Practical notes from SOC labs, SIEM investigations,
+DFIR, Windows, Linux and threat detection.
+</p>
+
+<a class="button" href="{{ '/admin/' | relative_url }}">
++ Write an article
+</a>
+
+</section>
+
+<div class="content-grid">
+
+<main>
+
+<div class="section-head">
+<h2>Latest articles</h2>
+<a href="{{ '/archive/' | relative_url }}">View archive →</a>
+</div>
+
+{% for post in site.posts limit:8 %}
+
+<article class="post-card">
+
+<div class="meta">
+{{ post.date | date: "%Y-%m-%d" }}
+·
+{{ post.categories | join: " · " }}
+</div>
+
+<h3>
+<a href="{{ post.url | relative_url }}">
+{{ post.title }}
+</a>
+</h3>
+
+<p>
+{{ post.excerpt | strip_html | truncate: 180 }}
+</p>
+
+<a class="read" href="{{ post.url | relative_url }}">
+Read article →
+</a>
+
+</article>
+
+{% endfor %}
+
+</main>
+
+<aside>
+
+<div class="side-card">
+
+<h3>Topics</h3>
+
+<div id="topic-list" class="tags"></div>
+
+</div>
+
+<div class="side-card">
+
+<h3>About</h3>
+
+<p>
+Notes, write-ups and hands-on learning
+from my cybersecurity journey.
+</p>
+
+</div>
+
+</aside>
+
+</div>
