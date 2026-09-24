@@ -1,8 +1,7 @@
 title: "Mostafa | Cybersecurity Notes"
-
 description: "SOC, SIEM, DFIR, Windows, Linux and cybersecurity labs."
 
-baseurl: ""
+baseurl: "/cybersecurity-blog"
 
 markdown: kramdown
 
