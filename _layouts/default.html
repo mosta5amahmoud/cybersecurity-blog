@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>
+{% if page.title %}
+{{ page.title }} ·
+{% endif %}
+{{ site.title }}
+</title>
+
+<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
+</head>
+
+<body>
+
+<header class="topbar">
+
+<a class="brand" href="{{ '/' | relative_url }}">
+⌂ Mostafa
+</a>
+
+<nav>
+
+<a href="{{ '/' | relative_url }}">
+Home
+</a>
+
+<a href="{{ '/archive/' | relative_url }}">
+Archive
+</a>
+
+<a href="{{ '/about/' | relative_url }}">
+About
+</a>
+
+<a href="{{ '/admin/#/collections/posts/new' | relative_url }}">
+Write
+</a>
+
+</nav>
+
+<div class="actions">
+
+<label class="search">
+
+⌕
+
+<input
+id="search"
+type="search"
+placeholder="Search"
+autocomplete="off"
+>
+
+</label>
+
+<button
+id="theme"
+type="button"
+aria-label="Toggle theme"
+>
+◐
+</button>
+
+</div>
+
+</header>
+
+
+<div
+id="search-results"
+class="search-results"
+></div>
+
+
+<main class="container">
+
+{{ content }}
+
+</main>
+
+
+<footer>
+
+© {{ site.time | date: "%Y" }}
+Mostafa Mahmoud Abdelkader
+
+</footer>
+
+
+<script src="{{ '/assets/js/search.js' | relative_url }}"></script>
+
+<script>
+
+if (localStorage.theme === 'light') {
+  document.body.classList.add('light');
+}
+
+const themeButton = document.getElementById('theme');
+
+if (themeButton) {
+
+  themeButton.onclick = () => {
+
+    document.body.classList.toggle('light');
+
+    localStorage.theme =
+      document.body.classList.contains('light')
+        ? 'light'
+        : 'dark';
+
+  };
+
+}
+
+</script>
+
+</body>
+
+</html>
