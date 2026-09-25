@@ -1,7 +1,12 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+
 backend:
-  name: turbo-github
-  turbo_site_id: YOUR_DECAP_TURBO_SITE_ID
+  name: github
+  repo: mosta5amahmoud/cybersecurity-blog
   branch: main
+  auth_methods:
+    - oauth
+    - token
 
 media_folder: "assets/images"
 public_folder: "/assets/images"
@@ -9,10 +14,10 @@ public_folder: "/assets/images"
 collections:
   - name: "posts"
     label: "Articles"
+    label_singular: "Article"
     folder: "_posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    preview_path: "/posts/{{slug}}/"
 
     fields:
       - label: "Title"
@@ -22,12 +27,13 @@ collections:
       - label: "Publish Date"
         name: "date"
         widget: "datetime"
-        format: "YYYY-MM-DD HH:mm:ss"
+        format: "YYYY-MM-DD HH:mm:ss ZZ"
 
       - label: "Categories"
         name: "categories"
         widget: "list"
-        default: ["Cybersecurity"]
+        default:
+          - "Cybersecurity"
 
       - label: "Description"
         name: "description"
